@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BC20D466221F420E0079C977 /* enrollment.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BC20D464221F420E0079C977 /* enrollment.cpp */; };
+		BC20D469221F422C0079C977 /* course.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BC20D467221F422C0079C977 /* course.cpp */; };
+		BC20D46C221F42370079C977 /* student.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BC20D46A221F42370079C977 /* student.cpp */; };
+		BC20D46F221F42530079C977 /* courses.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BC20D46D221F42530079C977 /* courses.cpp */; };
+		BC20D472221F425E0079C977 /* students.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BC20D470221F425E0079C977 /* students.cpp */; };
+		BC20D475221F42670079C977 /* enrollments.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BC20D473221F42670079C977 /* enrollments.cpp */; };
+		BCBF2F7522243D02009F60AB /* asdfasdf.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BCBF2F7422243D02009F60AB /* asdfasdf.cpp */; };
 		BCCD0D732214C77900F0AA7A /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BCCD0D722214C77900F0AA7A /* main.cpp */; };
 /* End PBXBuildFile section */
 
@@ -23,8 +30,22 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		BC20D464221F420E0079C977 /* enrollment.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = enrollment.cpp; sourceTree = "<group>"; };
+		BC20D465221F420E0079C977 /* enrollment.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = enrollment.hpp; sourceTree = "<group>"; };
+		BC20D467221F422C0079C977 /* course.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = course.cpp; sourceTree = "<group>"; };
+		BC20D468221F422C0079C977 /* course.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = course.hpp; sourceTree = "<group>"; };
+		BC20D46A221F42370079C977 /* student.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = student.cpp; sourceTree = "<group>"; };
+		BC20D46B221F42370079C977 /* student.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = student.hpp; sourceTree = "<group>"; };
+		BC20D46D221F42530079C977 /* courses.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = courses.cpp; sourceTree = "<group>"; };
+		BC20D46E221F42530079C977 /* courses.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = courses.hpp; sourceTree = "<group>"; };
+		BC20D470221F425E0079C977 /* students.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = students.cpp; sourceTree = "<group>"; };
+		BC20D471221F425E0079C977 /* students.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = students.hpp; sourceTree = "<group>"; };
+		BC20D473221F42670079C977 /* enrollments.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = enrollments.cpp; sourceTree = "<group>"; };
+		BC20D474221F42670079C977 /* enrollments.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = enrollments.hpp; sourceTree = "<group>"; };
+		BCBF2F7422243D02009F60AB /* asdfasdf.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = asdfasdf.cpp; sourceTree = "<group>"; };
 		BCCD0D6F2214C77900F0AA7A /* csce1040Homework2 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = csce1040Homework2; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCCD0D722214C77900F0AA7A /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		BCCD0D792214C7A100F0AA7A /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.markdown; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +62,7 @@
 		BCCD0D662214C77900F0AA7A = {
 			isa = PBXGroup;
 			children = (
+				BCBF2F7422243D02009F60AB /* asdfasdf.cpp */,
 				BCCD0D712214C77900F0AA7A /* csce1040Homework2 */,
 				BCCD0D702214C77900F0AA7A /* Products */,
 			);
@@ -58,6 +80,19 @@
 			isa = PBXGroup;
 			children = (
 				BCCD0D722214C77900F0AA7A /* main.cpp */,
+				BCCD0D792214C7A100F0AA7A /* README.md */,
+				BC20D464221F420E0079C977 /* enrollment.cpp */,
+				BC20D465221F420E0079C977 /* enrollment.hpp */,
+				BC20D467221F422C0079C977 /* course.cpp */,
+				BC20D468221F422C0079C977 /* course.hpp */,
+				BC20D46A221F42370079C977 /* student.cpp */,
+				BC20D46B221F42370079C977 /* student.hpp */,
+				BC20D46D221F42530079C977 /* courses.cpp */,
+				BC20D46E221F42530079C977 /* courses.hpp */,
+				BC20D470221F425E0079C977 /* students.cpp */,
+				BC20D471221F425E0079C977 /* students.hpp */,
+				BC20D473221F42670079C977 /* enrollments.cpp */,
+				BC20D474221F42670079C977 /* enrollments.hpp */,
 			);
 			path = csce1040Homework2;
 			sourceTree = "<group>";
@@ -119,6 +154,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				BCCD0D732214C77900F0AA7A /* main.cpp in Sources */,
+				BCBF2F7522243D02009F60AB /* asdfasdf.cpp in Sources */,
+				BC20D46F221F42530079C977 /* courses.cpp in Sources */,
+				BC20D475221F42670079C977 /* enrollments.cpp in Sources */,
+				BC20D466221F420E0079C977 /* enrollment.cpp in Sources */,
+				BC20D472221F425E0079C977 /* students.cpp in Sources */,
+				BC20D469221F422C0079C977 /* course.cpp in Sources */,
+				BC20D46C221F42370079C977 /* student.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

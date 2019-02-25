@@ -6,7 +6,7 @@ Andrew Sansom
 This represent's a single student's record.
 #### Variables
 - int ID        representing the ID number of the student
-- char[] name       representing the name of the student
+- string name       representing the name of the student
 - int numberOfClasses       representing the number of classes in which the student is currently enrolled. Clearly this value should not be negative. This cannot be more than 5.
 - int classification        representing the student's classification. 0=Freshman, 1=Sophomore, 2=Junior, and 3=Senior.
 - int[] courses         representing the current courses in which the student is enrolled.
@@ -19,19 +19,20 @@ bool addCourse(int courseID) adds a course to "courses" and updates the numberOf
 
 
 
-### Class Course
+### Class course
 This represents the data for a course.
 #### Variables
+private:
 - int ID        representing the ID number of the course
-- char[] name       representing the name of the course
-- char[] location       representing the location of the course as  C-string
+- string name       representing the name of the course
+- string location       representing the location of the course as  C-string
 - int enollmentCurrent           representing the current enrollment of the course. Clearly this value should not be negative. It has a maximum value of 48.
 - int enrollmentCapacity        representing the current maximum enrollment of the course. Clearly this value should not be negative. It has a maximum value of 48.
-- int[] enrollmentIDs   dynamic array representing a collection of enrollment data
-- int[] studentIDs  dynamic array repesenting a collection of student records
+- int* enrollmentIDs   dynamic array representing a collection of enrollment data
+- int* studentIDs  dynamic array repesenting a collection of student records
 #### Functions
 public:
-- Constructor Course::Course(int ID, char[] name, char[] location)
+- Constructor course::course(int ID, string name, string location)
 - bool addStudentToCourse(int studentID) calls Enrollment's addEnrollment with the given studentID and the courseID. Adds studentID to the next spot in studentIDs and the returned enrollment ID to enrollmentIDs. It also updates the corresponding Student object's classes. Returns true if succesful (i.e. the student is not at maximum enrollment and the class is not already at capacity), and false is not.
 - void printAllGradesOfStudent(int studentID) prints all the grades of the student for a particular class to the console.
 - void printAllStudentsInClass()    prints a list of all of the students in the class to the console.
@@ -43,7 +44,7 @@ private:
 
 
 
-### Class Enrollment
+### Class enrollment
 Represents a single student's grade data for a single class.
 #### Variables
 private:
@@ -57,7 +58,7 @@ private:
 
 #### Functions
 public:
-bool addGradeForStudent(int grade) adds a grade to the next available spot in the grades array. Also increments numberOfGrades. Returns true if successful, false otherwise
+bool addGrade(int grade) adds a grade to the next available spot in the grades array. Also increments numberOfGrades. Returns true if successful, false otherwise
 float calculateAverage    returns the average of all of the grades in an enrollment object as a float.
 char calculateLetterGrade  returns the letter grade of the student as a char.
 
@@ -94,6 +95,7 @@ int studentsCapacity      representing the current capacity of student records.
 int makeNewStudent(char[] name) creates a new student record by calling the Student Constructor and adds it to the STUDENTS array, allocating memory if necessary. Returns with the id number if succesful, but -1 if not.
 void printListOfAllStudents() prints a list of all students to the console
 bool enrollStudentInCourse(int studentID, int courseID) enrolls student with studentID in course with courseID. Returns false if student's numberOfCourses is equal to 5. Then calls Courses's addStudentToCourse method. Adds the courseID to the student's enrolledCourses array. Iterates the student's numberOfCourses by 1. Returns true if successful, and false if not.
+int getStudentIdFromName(char* name) returns the ID number of the student with a given name.
 
 
 

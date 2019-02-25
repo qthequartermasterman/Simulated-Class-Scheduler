@@ -11,4 +11,8 @@
 
 #include <stdio.h>
 
+class Courses{
+    
+};
+
 #endif /* courses_hpp */
