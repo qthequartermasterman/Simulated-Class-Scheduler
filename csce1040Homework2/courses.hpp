@@ -9,9 +9,25 @@
 #ifndef courses_hpp
 #define courses_hpp
 
-#include <stdio.h>
+#include "course.hpp"
+
+#define CHUNKSIZE 2
 
 class Courses{
+private:
+    course* COURSES;      //dynamic array representing the master list of courses
+    int courseCount;         //the current number of courses in the system
+    int courseCapacity;      //the current size of COURSES
+
+public:
+    int makeNewCourse(std::string name, std::string location); //creates a new course by calling the Course constructor and adding it to the COURSES array. If COURSES is not large enough, it allocates more space. Returns the ID number if successful, or -1 if not.
+    bool isCourseIDValid(int courseID); //Returns true if there is a class with that courseID. False otherwise.
+    
+    
+    Courses();
+    ~Courses(){delete [] COURSES;};
+    void printCourses();
+    void cleanup();
     
 };
 

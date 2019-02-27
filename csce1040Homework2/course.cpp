@@ -8,6 +8,16 @@
 
 #include "course.hpp"
 
+void course::print(){
+    std::cout << "Course: " << name << " \tLocation: " << location << " \tID: " << ID << std::endl;
+}
+
+
+
+
+
+
+
 /*
 int ID;        //representing the ID number of the course
 std::string name;       //representing the name of the course
@@ -20,17 +30,17 @@ int* studentIDs;  //dynamic array repesenting a collection of student records
 int findEnrollmentIdFromStudentId(int studentID); //returns the enrollment ID from the corresponding student ID. This will
  */
 
-
+/*
 course::course(int _ID, std::string _name, std::string _location){
     ID = _ID;
     name = _name;
     location = _location;
-    enrollmentCurrent = 0;
-    enrollmentCapacity = 5;
+    //enrollmentCurrent = 0;
+    //enrollmentCapacity = 5;
     //enrollmentIDs = new int[5];
-    studentIDs = new int[5];
-}
-
+    //studentIDs = new int[5];
+}*/
+/*
 bool course::addStudentToCourse(int studentID, Enrollments *globalEnrollments, Students *globalStudents){
     if (enrollmentCurrent == 48){
         std::cout << "Error: Cannot add more than 48 students to a course.\n";
@@ -65,6 +75,6 @@ void course::printAllStudentsInClass(Enrollments *globalEnrollments){
     }
 }    //prints a list of all of the students in the class to the console.
 float course::computeAverageOfClass(Enrollments *globalEnrollments){
-
-    globalEnrollments->calculateAverageOfStudentsInCourse(int courseID);
+    return globalEnrollments->calculateAverageOfStudentsInCourse(ID);
 } //computes the average of the average of every student in a particular class.
+*/

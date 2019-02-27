@@ -19,7 +19,6 @@ private:
     float average;       //representing the average of all of the grades
     char letterGarde;           //representing the letter grade ( Intervals written in mathematical interval notation [90,100] => 'A'; [80,90) => 'B'; [75,80) => 'C'; [70,75) => 'D'; [0,70) => 'F')
 public:
-    enrollment(int ID, int studentID, int courseID);
     bool addGrade(int grade); //adds a grade to the next available spot in the grades array. Also increments numberOfGrades. Returns true if successful, false otherwise
     float calculateAverage();    //returns the average of all of the grades in an enrollment object as a float.
     char calculateLetterGrade();  //returns the letter grade of the student as a char.

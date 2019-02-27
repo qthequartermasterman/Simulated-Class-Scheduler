@@ -7,3 +7,17 @@
 //
 
 #include "student.hpp"
+bool student::addCourse(int courseID){
+    if (numberOfClasses==5){
+        std::cout << "Error: Student already enrolled in five classes.\n";
+        return false;
+    } else{
+        numberOfClasses++;
+        return true;
+    }
+} //Updates the numberOfClasses. Returns true if succesful (i.e. the student is not already at maximum enrollment and the class is not already full) but false if not.
+
+void student::print(){
+    std::cout << "Student: " << name << " \tClassification: " << classification << " \t Number of Classes: " << numberOfClasses << std::endl;
+    std::cout << "ID: " << ID <<std::endl;
+}

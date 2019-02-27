@@ -9,9 +9,8 @@
 #ifndef enrollments_hpp
 #define enrollments_hpp
 
-#include <stdio.h>
 #include "enrollment.hpp"
-
+#include <iostream>
 class Enrollments{
 private:
     enrollment *ENROLLMENTS;      //dynamic array representing the master list of enrollments
@@ -19,12 +18,26 @@ private:
     int enrollmentCapacity;      //representing the current capacity of enrollments.
 public:
     Enrollments();
-    ~Enrollments();
+    ~Enrollments(){delete [] ENROLLMENTS;};
     void allocateFiveMoreEnrollments();      //allocates space for five more enrollments (the maximum number needed for a single student)
     bool addGrade(int studentID, int classID, int grade); //adds a grade for student with id studentID who is enrolled in class with id classID. Iterates over the ENROLLMENTS array for the object with matching studentID and classID. Calls that Enrollment instances AddGradeForStudent function. Returns true if successful, returns false if not.
     int addEnrollment(int studentID,int courseID); //generates a new Enrollment instance and adds it to ENROLLMENTS, allocating memory if necessary. Returns the id of the enrollment instance.
     void printAllGradesOfStudentInCourse(int studentID, int courseID);
     float calculateAverageOfStudentsInCourse(int courseID);
+    
+    
+    /*NEW REDESIGNED FUNCTIONS*/
+    int countStudentsInClass(int courseID); //Counts the number of students in a class, based on the number of enrollment items with the proper class ID. Loops over each element in ENROLLMENTS and adds one to a counter each time the courseID matches that enrollment instance's.
+    
+    int countClassesStudentIsEnrolledIn(int studentID); //Counts the number of classes a student is enrolled in, based on the number of enrollment items with the proper student ID. Loops over each element in ENROLLMENTS and adds one to a counter each time the studentID matches that enrollment instance's.
+    
+    void printAllGradesOfStudent(int studentID, int courseID); //prints all the grades of the student for a particular class to the console. Loops over each enrollment and prints the grades if it is in the desired class.
+    void printAllStudentsInClass(int courseID);    //prints a list of all of the students in the class to the console. Loops over each enrollment and prints the student's name if they are in that class.
+    float computeAverageOfClass(); //computes the average of the average of every student in a particular class.
+    
+    bool isCourseFull(int courseID); // returns true if the course has 48 students enrolled in it.
+    
+    void cleanup();
 };
 
 #endif /* enrollments_hpp */

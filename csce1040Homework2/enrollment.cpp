@@ -19,13 +19,7 @@ float average;       //representing the average of all of the grades
 char letterGarde;           //representing the letter grade ( Intervals written in mathematical interval notation [90,100] => 'A'; [80,90) => 'B'; [75,80) => 'C'; [70,75) => 'D'; [0,70) => 'F')
 */
 
-enrollment::enrollment(int _ID, int _studentID, int _courseID){
-    ID = _ID;
-    studentID = _studentID;
-    courseID = _courseID;
-    numberOfGrades = 0;
-    average = 0;
-}
+
 bool enrollment::addGrade(int grade){
     if (numberOfGrades == 10){
         std::cout << "Maximum Number of Grades exceeded. Grade not recorded. \n";
