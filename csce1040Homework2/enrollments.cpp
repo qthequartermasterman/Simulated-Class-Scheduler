@@ -1,30 +1,27 @@
-//
-//  enrollments.cpp
-//  csce1040Homework2
-//
-//  Created by Andrew Sansom on 2/21/19.
-//  Copyright © 2019 Andrew Sansom. All rights reserved.
-//
+/*=============enrollments.cpp================*/
+/*
+ DESCRIPTION:   Contains functions necessary to maintain one Enrollments collection.
+ AUTHOR:        Andrew P. Sansom
+ VERSION:       1.0.0
+ VERSION DATE:  20 Feb 2019
+ EMAIL:         andrewsansom@my.unt.edu
+ COURSE:        CSCE 1040
+ =============enrollments.cpp================*/
 
-#include "enrollments.hpp"
+#include "enrollments.h"
 #include "students.h"
 #include "courses.h"
 #define CHUNKSIZE 2
 
-float Enrollments::calculateAverageOfStudentsInCourse(int courseID){
-    float runningTotal = 0;
-    int numberOfStudents = 0;
-    for (int i=0; i < currentNumberOfEnrollments; i++){
-        if (ENROLLMENTS[i].getCourseID()==courseID){
-            runningTotal += ENROLLMENTS[i].calculateAverage();
-            numberOfStudents++;
-        }
-    }
-    return runningTotal/numberOfStudents;
+//Memory Allocation
+Enrollments::Enrollments(){
+    ENROLLMENTS = new enrollment[CHUNKSIZE];
+    enrollmentCapacity = CHUNKSIZE;
+    currentNumberOfEnrollments = 0;
 }
 
 int Enrollments::addEnrollment(int studentID,int courseID){
-    
+    //Allocate more memory if needed.
     if (currentNumberOfEnrollments == enrollmentCapacity){
         enrollment *temp;
         temp = new enrollment[enrollmentCapacity + CHUNKSIZE];
@@ -33,33 +30,14 @@ int Enrollments::addEnrollment(int studentID,int courseID){
         enrollmentCapacity += CHUNKSIZE;
         ENROLLMENTS = temp;
     }
-
     ENROLLMENTS[currentNumberOfEnrollments].setID(currentNumberOfEnrollments);
     ENROLLMENTS[currentNumberOfEnrollments].setStudentID(studentID);
     ENROLLMENTS[currentNumberOfEnrollments].setCourseID(courseID);
     currentNumberOfEnrollments++;
-    
-    return currentNumberOfEnrollments-1;  
+    return currentNumberOfEnrollments-1;
 } //generates a new Enrollment instance and adds it to ENROLLMENTS, allocating memory if necessary. Returns the id of the enrollment instance.
 
-
-Enrollments::Enrollments(){
-    ENROLLMENTS = new enrollment[CHUNKSIZE];
-    enrollmentCapacity = CHUNKSIZE;
-    currentNumberOfEnrollments = 0;
-}
-
-void Enrollments::printAllStudentsInClass(int courseID, Students *students, Courses *courses){
-    std::cout << "Course (ID): " << courses->getNameFromID(courseID) << " (" << courseID << ")\n";
-    std::cout << "Students (ID): \n";
-    for (int i = 0; i < currentNumberOfEnrollments; i++){
-        if (ENROLLMENTS[i].getCourseID() == courseID){
-            std::cout << students->getNameFromID(ENROLLMENTS[i].getStudentID()) << " ("<< ENROLLMENTS[i].getStudentID() << ")\n";
-        }
-    }
-    std::cout << std::endl;
-}    //prints a list of all of the students in the class to the console. Loops over each enrollment and prints the student's name if they are in that class.
-
+//Verification functions. These are used to check if the enrollment item really can be made.
 bool Enrollments::isCourseFull(int courseID){
     int counter = 0;
     for (int i = 0; i < currentNumberOfEnrollments; i++){
@@ -70,17 +48,12 @@ bool Enrollments::isCourseFull(int courseID){
     if (counter == 48){
         return true;
     } else {
-            return false;
+        return false;
     }
 } // returns true if the course has 48 students enrolled in it.
 
-void Enrollments::printAllGradesOfStudentInCourse(int studentID, int courseID){
-    for (int i = 0; i < currentNumberOfEnrollments; i++){
-        if (ENROLLMENTS[i].getCourseID()==courseID && ENROLLMENTS[i].getStudentID()==studentID){
-            ENROLLMENTS[i].printGrades();
-        }
-    }
-} //Loops over the ENROLLMENTS array, finds the first enrollment instance that matches the studentID and courseID. Then prints the grades to the console.
+
+//Grade Manipulation functions. These either manipulate grades or run some statistic on them.
 
 bool Enrollments::addGrade(int studentID, int classID, int grade){
     for (int i = 0; i < currentNumberOfEnrollments; i++){
@@ -100,19 +73,41 @@ float Enrollments::computeAverageOfStudent(int studentID, int courseID){
     return -1;
 } //Computes the average of a student in a course.
 
-float Enrollments::computeAverageOfClass(int courseID){
+float Enrollments::calculateAverageOfStudentsInCourse(int courseID){
     float runningTotal = 0;
-    int counter = 0;
-    for (int i = 0; i < currentNumberOfEnrollments; i++){
-        if (ENROLLMENTS[i].getCourseID()==courseID && ENROLLMENTS[i].calculateAverage() != -1){
-            counter++;
+    int numberOfStudents = 0;
+    for (int i=0; i < currentNumberOfEnrollments; i++){
+        if (ENROLLMENTS[i].getCourseID()==courseID){
             runningTotal += ENROLLMENTS[i].calculateAverage();
+            numberOfStudents++;
         }
     }
-    return runningTotal/counter;
-} //computes the average of the average of every student in a particular class.
+    return runningTotal/numberOfStudents;
+} //Computes the average of a student in a course.
 
 
+//Print functions. These print some sort of data to the console.
+void Enrollments::printAllStudentsInClass(int courseID, Students *students, Courses *courses){
+    std::cout << "Course (ID): " << courses->getNameFromID(courseID) << " (" << courseID << ")\n";
+    std::cout << "Students (ID): \n";
+    for (int i = 0; i < currentNumberOfEnrollments; i++){
+        if (ENROLLMENTS[i].getCourseID() == courseID){
+            std::cout << students->getNameFromID(ENROLLMENTS[i].getStudentID()) << " ("<< ENROLLMENTS[i].getStudentID() << ")\n";
+        }
+    }
+    std::cout << std::endl;
+}    //prints a list of all of the students in the class to the console. Loops over each enrollment and prints the student's name if they are in that class.
+
+void Enrollments::printAllGradesOfStudentInCourse(int studentID, int courseID){
+    for (int i = 0; i < currentNumberOfEnrollments; i++){
+        if (ENROLLMENTS[i].getCourseID()==courseID && ENROLLMENTS[i].getStudentID()==studentID){
+            ENROLLMENTS[i].printGrades();
+        }
+    }
+} //Loops over the ENROLLMENTS array, finds the first enrollment instance that matches the studentID and courseID. Then prints the grades to the console.
+
+
+//File storage functions. These well... store files.
 void Enrollments::storeEnrollmentsData(){
     std::ofstream fout;
     fout.open("enrollments.dat");
@@ -128,7 +123,6 @@ void Enrollments::storeEnrollmentsData(){
     }
     fout.close();
 }
-
 void Enrollments::loadEnrollmentsData(){
     std::ifstream fin;
     int id;

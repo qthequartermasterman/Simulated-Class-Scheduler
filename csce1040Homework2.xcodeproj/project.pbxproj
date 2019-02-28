@@ -40,7 +40,7 @@
 		BC20D470221F425E0079C977 /* students.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = students.cpp; sourceTree = "<group>"; };
 		BC20D471221F425E0079C977 /* students.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = students.h; sourceTree = "<group>"; };
 		BC20D473221F42670079C977 /* enrollments.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = enrollments.cpp; sourceTree = "<group>"; };
-		BC20D474221F42670079C977 /* enrollments.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = enrollments.hpp; sourceTree = "<group>"; };
+		BC20D474221F42670079C977 /* enrollments.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = enrollments.h; sourceTree = "<group>"; };
 		BCCD0D6F2214C77900F0AA7A /* csce1040Homework2 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = csce1040Homework2; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCCD0D722214C77900F0AA7A /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		BCCD0D792214C7A100F0AA7A /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.markdown; };
@@ -89,7 +89,7 @@
 				BC20D470221F425E0079C977 /* students.cpp */,
 				BC20D471221F425E0079C977 /* students.h */,
 				BC20D473221F42670079C977 /* enrollments.cpp */,
-				BC20D474221F42670079C977 /* enrollments.hpp */,
+				BC20D474221F42670079C977 /* enrollments.h */,
 			);
 			path = csce1040Homework2;
 			sourceTree = "<group>";

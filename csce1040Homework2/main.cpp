@@ -13,7 +13,7 @@
 
 #include "courses.h"
 #include "students.h"
-#include "enrollments.hpp"
+#include "enrollments.h"
 
 
 Enrollments Enrollments;
