@@ -66,6 +66,7 @@ void Courses::storeCoursesData(){
     std::ofstream fout;
     fout.open("courses.dat");
     fout << currentNumberOfCourses << std::endl;
+    fout << courseCapacity << std::endl;
     //We iterate over each class
     for ( int i=0; i < currentNumberOfCourses; i++){
         //Iterate over each variable corresponding to each class
@@ -81,6 +82,7 @@ void Courses::loadCoursesData(){
     std::string location;
     fin.open("courses.dat");
     fin >> currentNumberOfCourses; fin.ignore();
+    fin >> courseCapacity; fin.ignore();
     COURSES = new course[currentNumberOfCourses];
     for ( int i=0; i < currentNumberOfCourses; i++){
         fin >> id >> name >> location;

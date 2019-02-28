@@ -71,9 +71,9 @@ int main() {
             case 1:{ //1. Add a new course
                 std::string courseName;
                 std::string locationName;
-                std::cout << "What is the name of the new course?\n";
+                std::cout << "What is the name of the new course?(No spaces)\n";
                 std::cin >> courseName;
-                std::cout << "What is the location of the class?\n";
+                std::cout << "What is the location of the class?(No spaces)\n";
                 std::cin >> locationName;
                 int courseID = Courses.makeNewCourse(courseName, locationName);
                 if (courseID==-1){
@@ -83,11 +83,11 @@ int main() {
                 }
                 break;
             }
-                
+
             case 2:{ //2. Add a new student
                 std::string studentName;
                 int classification;
-                std::cout << "What is the name of the new student?\n";
+                std::cout << "What is the name of the new student? (No spaces)\n";
                 std::cin >> studentName;
                 std::cout << "What is the classification of said student?\n0=Freshman, 1=Sophomore, 2=Junior, and 3=Senior.\n";
                 std::cin >> classification;
@@ -221,18 +221,20 @@ int main() {
             }
             case 11:{    //11. Store Grade book (to a disk file)
                 storeData();
+                std::cout << "Stored data to disk.\n";
                 break;
             }
             case 12:{    //12. Load Grade book (from a disk file)
                 loadData();
+                std::cout << "Loaded data from disk.\n";
                 break;
             }
-            case 13:{
+            /*case 13:{
                 int studentID;
                 std::cout << "What is the student ID of the student whose info you would like to view?\n";
                 std::cin >> studentID;
                 Students.printStudentInfo(studentID);
-            }
+            }*/
             default: {
                 std::cout << "Unknown operation requested. Please enter a number between 0 and 12 inclusive.\n";
                 break;

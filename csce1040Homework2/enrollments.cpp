@@ -112,6 +112,7 @@ void Enrollments::storeEnrollmentsData(){
     std::ofstream fout;
     fout.open("enrollments.dat");
     fout << currentNumberOfEnrollments << std::endl;
+    fout << enrollmentCapacity << std::endl;
     //Print to file in this order:
     //enrollmentID, studentID, courseID, currentNumberOfGrades, each grade individually
     for ( int i=0; i < currentNumberOfEnrollments; i++){
@@ -132,6 +133,7 @@ void Enrollments::loadEnrollmentsData(){
     int grade;
     fin.open("enrollments.dat");
     fin >> currentNumberOfEnrollments; fin.ignore();
+    fin >> enrollmentCapacity; fin.ignore();
     ENROLLMENTS = new enrollment[currentNumberOfEnrollments];
     for ( int i=0; i < currentNumberOfEnrollments; i++){
         fin >> id >> studentID >> courseID >> numberOfGrades;

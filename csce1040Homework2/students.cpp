@@ -86,6 +86,7 @@ void Students::storeStudentData(){
     std::ofstream fout;
     fout.open("students.dat");
     fout << currentNumberOfStudents << std::endl;
+    fout << studentsCapacity << std::endl;
     for ( int i=0; i < currentNumberOfStudents; i++){
         fout << STUDENTS[i].getID() << " " << STUDENTS[i].getName() << " " << STUDENTS[i].getClassification() << " " << STUDENTS[i].getNumberOfClasses() << std::endl;
     }
@@ -100,6 +101,7 @@ void Students::loadStudentData(){
     int numberOfClasses;
     fin.open("students.dat");
     fin >> currentNumberOfStudents; fin.ignore();
+    fin >> studentsCapacity; fin.ignore();
     STUDENTS = new student[currentNumberOfStudents];
     for ( int i=0; i < currentNumberOfStudents; i++){
         fin >> id >> name >> classification >> numberOfClasses;

@@ -36,6 +36,6 @@ public:
     int getStudentIdFromName(std::string name); //returns the ID number of the student with a given name.
 
     void storeStudentData(); //stores student data to the file "students.dat" in the working directory
-    void loadStudentData(); //loads student data from the file "students.dat" in the working directory
+    void loadStudentData(); //loads student data from the file "students.dat"
 };
 #endif /* students_h */

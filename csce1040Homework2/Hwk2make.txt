@@ -1,0 +1,18 @@
+CXXFLAGS += -std=c++11
+
+hwk2: main.o enrollments.o enrollment.o students.o student.o courses.o course.o
+	g++ $(CXXFLAGS) -o hwk2 main.o enrollments.o enrollment.o students.o student.o courses.o course.o
+course.o: course.cpp course.h
+	g++ $(CXXFLAGS) -c course.cpp
+courses.o: courses.cpp courses.h course.h
+	g++ $(CXXFLAGS) -c courses.cpp
+enrollment.o: enrollment.cpp enrollment.h
+	g++ $(CXXFLAGS) -c enrollment.cpp
+enrollments.o: enrollments.cpp enrollments.h enrollment.h students.h student.h courses.h course.h
+	g++ $(CXXFLAGS) -c enrollments.cpp
+main.o: main.cpp courses.h course.h students.h student.h enrollments.h enrollment.h
+	g++ $(CXXFLAGS) -c main.cpp
+student.o: student.cpp student.h
+	g++ $(CXXFLAGS) -c student.cpp
+students.o: students.cpp students.h student.h
+	g++ $(CXXFLAGS) -c students.cpp
