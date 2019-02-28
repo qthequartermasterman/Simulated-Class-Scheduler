@@ -9,7 +9,7 @@
 #ifndef enrollments_hpp
 #define enrollments_hpp
 
-#include "enrollment.hpp"
+#include "enrollment.h"
 #include <iostream>
 #include <fstream>
 

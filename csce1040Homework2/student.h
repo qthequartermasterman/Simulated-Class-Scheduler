@@ -1,13 +1,15 @@
-//
-//  student.hpp
-//  csce1040Homework2
-//
-//  Created by Andrew Sansom on 2/21/19.
-//  Copyright © 2019 Andrew Sansom. All rights reserved.
-//
+/*=============student.h================*/
+/*
+ DESCRIPTION:   Contains functions and data collection necessary to maintain one student record.
+ AUTHOR:        Andrew P. Sansom
+ VERSION:       1.0.0
+ VERSION DATE:  20 Feb 2019
+ EMAIL:         andrewsansom@my.unt.edu
+ COURSE:        CSCE 1040
+ =============student.h================*/
 
-#ifndef student_hpp
-#define student_hpp
+#ifndef student_h
+#define student_h
 
 #include <string>
 #include <iostream>
@@ -35,4 +37,4 @@ public:
 };
 
 
-#endif /* student_hpp */
+#endif /* student_h */

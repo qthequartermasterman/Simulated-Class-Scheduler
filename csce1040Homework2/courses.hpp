@@ -9,7 +9,7 @@
 #ifndef courses_hpp
 #define courses_hpp
 
-#include "course.hpp"
+#include "course.h"
 #include <fstream>
 
 #define CHUNKSIZE 2

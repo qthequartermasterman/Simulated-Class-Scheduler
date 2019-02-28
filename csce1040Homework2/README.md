@@ -9,12 +9,9 @@ This represent's a single student's record.
 - string name       representing the name of the student
 - int numberOfClasses       representing the number of classes in which the student is currently enrolled. Clearly this value should not be negative. This cannot be more than 5.
 - int classification        representing the student's classification. 0=Freshman, 1=Sophomore, 2=Junior, and 3=Senior.
-- int[] courses         representing the current courses in which the student is enrolled.
-
 #### Functions
-
-bool addCourse(int courseID) adds a course to "courses" and updates the numberOfClasses. Returns true if succesful (i.e. the student is not already at maximum enrollment) but false if not.
-
+- bool addCourse(int courseID); //adds a course to "courses" and updates the numberOfClasses. Returns true if succesful (i.e. the student is not already at maximum enrollment and the class is not already full) but false if not.
+- void print(); //Prints all information about the student to the console. Simply prints everything using a formatted cout string.
 
 
 
@@ -26,19 +23,9 @@ private:
 - int ID        representing the ID number of the course
 - string name       representing the name of the course
 - string location       representing the location of the course as  C-string
-- int enollmentCurrent           representing the current enrollment of the course. Clearly this value should not be negative. It has a maximum value of 48.
-- int enrollmentCapacity        representing the current maximum enrollment of the course. Clearly this value should not be negative. It has a maximum value of 48.
-- int* enrollmentIDs   dynamic array representing a collection of enrollment data
-- int* studentIDs  dynamic array repesenting a collection of student records
 #### Functions
 public:
-- Constructor course::course(int ID, string name, string location)
-- bool addStudentToCourse(int studentID) calls Enrollment's addEnrollment with the given studentID and the courseID. Adds studentID to the next spot in studentIDs and the returned enrollment ID to enrollmentIDs. It also updates the corresponding Student object's classes. Returns true if succesful (i.e. the student is not at maximum enrollment and the class is not already at capacity), and false is not.
-- void printAllGradesOfStudent(int studentID) prints all the grades of the student for a particular class to the console.
-- void printAllStudentsInClass()    prints a list of all of the students in the class to the console.
-- float computeAverageOfClass() computes the average of the average of every student in a particular class. 
-private:
-- int findEnrollmentIdFromStudentId(int studentID) returns the enrollment ID from the corresponding student ID. This will 
+- void print(); //prints the course's information to the console.
 
 
 
@@ -51,16 +38,19 @@ private:
 - int ID        representing the ID number of the enrollment data
 - int studentID     representing the student's ID
 - int courseID      representing the course's ID
-- int[10] grades        an integer array of size ten representing the 10 grades in the course
+- int grades[10]         an integer array of size ten representing the 10 grades in the course
 - int numberOfGrades    an integer representing the number of grades in the course.
 - float average       representing the average of all of the grades
-- char letterGarde           representing the letter grade ( Intervals written in mathematical interval notation [90,100] => 'A'; [80,90) => 'B'; [75,80) => 'C'; [70,75) => 'D'; [0,70) => 'F')
+- char letterGrade           representing the letter grade ( Intervals written in mathematical interval notation [90,100] => 'A'; [80,90) => 'B'; [75,80) => 'C'; [70,75) => 'D'; [0,70) => 'F')
 
 #### Functions
-public:
-bool addGrade(int grade) adds a grade to the next available spot in the grades array. Also increments numberOfGrades. Returns true if successful, false otherwise
-float calculateAverage    returns the average of all of the grades in an enrollment object as a float.
-char calculateLetterGrade  returns the letter grade of the student as a char.
+- bool addGrade(int grade);       //adds a grade to the next available spot in the grades array. Also increments numberOfGrades. Returns true if successful, false otherwise
+- float calculateAverage();           //returns the average of all of the grades in an enrollment object as a float. Returns -1 if the average is undefined (due to a division by zero error).
+- char calculateLetterGrade();        //returns the letter grade of the student as a char.
+- void printGrades();         //prints all grades to the console.
+//Special Setter and Getter functions
+- int getGradeNumber(int gradeNumber);    //Returns the gradeNumber-th element in the grades array.
+- void setGradeNumber(int gradeNumber, int grade);       //Sets the gradeNumber-th element of the grades array to grade.
 
 
 

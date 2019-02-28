@@ -1,24 +1,16 @@
-//
-//  enrollment.cpp
-//  csce1040Homework2
-//
-//  Created by Andrew Sansom on 2/21/19.
-//  Copyright © 2019 Andrew Sansom. All rights reserved.
-//
+/*=============enrollment.cpp================*/
+/*
+ DESCRIPTION:   Contains functions necessary to maintain one enrollment record.
+ AUTHOR:        Andrew P. Sansom
+ VERSION:       1.0.0
+ VERSION DATE:  20 Feb 2019
+ EMAIL:         andrewsansom@my.unt.edu
+ COURSE:        CSCE 1040
+ =============enrollment.cpp================*/
 
-#include "enrollment.hpp"
+#include "enrollment.h"
 #include <iostream>
 #include <iomanip>
-/*
-int ID;        //representing the ID number of the enrollment data
-int studentID;     //representing the student's ID
-int courseID;      //representing the course's ID
-int grades[10];        //an integer array of size ten representing the 10 grades in the course
-int numberOfGrades;    //an integer representing the number of grades in the course.
-float average;       //representing the average of all of the grades
-char letterGarde;           //representing the letter grade ( Intervals written in mathematical interval notation [90,100] => 'A'; [80,90) => 'B'; [75,80) => 'C'; [70,75) => 'D'; [0,70) => 'F')
-*/
-
 
 bool enrollment::addGrade(int grade){
     if (numberOfGrades == 10){
@@ -36,12 +28,13 @@ float enrollment::calculateAverage(){
     float runningTotal = 0;
     if (numberOfGrades==0){
         //Aint nobody got time for division by zero errors!.
+        //Clearly, the average cannot be -1, so this signals to the otherside that there is a division by zero error here.
         return -1;
     }
     for (int i = 0; i < numberOfGrades; i++){
         runningTotal += grades[i];
     }
-    average = runningTotal/numberOfGrades;
+    average = runningTotal/numberOfGrades; //saves this to the variable in the enrollment object, since the specifications require that for some reason.
     return average;
 }    //returns the average of all of the grades in an enrollment object as a float.
 
@@ -59,19 +52,25 @@ char enrollment::calculateLetterGrade(){
     } else {
         letter = 'F';
     }
-    letterGrade = letter;
+    letterGrade = letter; //saves this to the variable in the enrollment object, since the specifications require that for some reason.
     return letter;
 }  //returns the letter grade of the student as a char.
 
 void enrollment::printGrades(){
+    //Headers
     std::cout << std::left << std::setw(12) << "Student ID:" << std::setw(12) << "Course ID:" << std::setw(12) << "Grades: ";
+    //Grade Headers (variable number, so we compensate with a for loop.
     for (int i = 0; i < numberOfGrades; i++){
         std::cout << std::left << std::setw(4) << i+1 << " ";
     }
+    //More Headers...
     std::cout << std::setw(10) << "Average: " << std::endl;
+    //Data
     std::cout << std::left << std::setw(10) << studentID << "  " << std::setw(10) << courseID << "  " << std::setw(12) << " ";
+    //Grades (variable number)
     for (int i = 0; i < numberOfGrades; i++){
         std::cout << std::right << std::setw(4) << grades[i] << " ";
     }
+    //Average and Letter grade
     std::cout << std::setw(10) << std::setprecision(2) << std::fixed << calculateAverage() << std::setw(2) << calculateLetterGrade() << std::endl;
 } //prints all grades to the console.

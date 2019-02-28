@@ -1,13 +1,15 @@
-//
-//  enrollment.hpp
-//  csce1040Homework2
-//
-//  Created by Andrew Sansom on 2/21/19.
-//  Copyright © 2019 Andrew Sansom. All rights reserved.
-//
+/*=============enrollment.h================*/
+/*
+ DESCRIPTION:   Contains functions and data collection necessary to maintain one enrollment record.
+ AUTHOR:        Andrew P. Sansom
+ VERSION:       1.0.0
+ VERSION DATE:  20 Feb 2019
+ EMAIL:         andrewsansom@my.unt.edu
+ COURSE:        CSCE 1040
+ =============enrollment.h================*/
 
-#ifndef enrollment_hpp
-#define enrollment_hpp
+#ifndef enrollment_h
+#define enrollment_h
 
 class enrollment {
 private:
@@ -20,9 +22,10 @@ private:
     char letterGrade;           //representing the letter grade ( Intervals written in mathematical interval notation [90,100] => 'A'; [80,90) => 'B'; [75,80) => 'C'; [70,75) => 'D'; [0,70) => 'F')
 public:
     bool addGrade(int grade); //adds a grade to the next available spot in the grades array. Also increments numberOfGrades. Returns true if successful, false otherwise
-    float calculateAverage();    //returns the average of all of the grades in an enrollment object as a float.
+    float calculateAverage();    //returns the average of all of the grades in an enrollment object as a float. Returns -1 if the average is undefined (due to a division by zero error).
     char calculateLetterGrade();  //returns the letter grade of the student as a char.
-    
+    void printGrades(); //prints all grades to the console.
+    //Getters and Setters
     int getID(){return ID;};
     int getStudentID(){return studentID;};
     int getCourseID(){return courseID;};
@@ -33,9 +36,6 @@ public:
     void setNumberOfGrades(int _number){numberOfGrades=_number;};
     int getGradeNumber(int gradeNumber){return grades[gradeNumber];}; //Returns the gradeNumber-th element in the grades array.
     void setGradeNumber(int gradeNumber, int grade){grades[gradeNumber]=grade;}; //Sets the gradeNumber-th element of the grades array to grade.
-    
-    void printGrades(); //prints all grades to the console.
-
 };
 
-#endif /* enrollment_hpp */
+#endif /* enrollment_h */
