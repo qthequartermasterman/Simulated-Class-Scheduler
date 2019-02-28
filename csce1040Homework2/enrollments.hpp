@@ -41,8 +41,7 @@ public:
     float computeAverageOfClass(int courseID); //computes the average of the average of every student in a particular class.
     float computeAverageOfStudent(int studentID, int courseID); //Computes the average of a student in a course.
     bool isCourseFull(int courseID); // returns true if the course has 48 students enrolled in it.
-    
-    void cleanup();
+
     
     void storeEnrollmentsData();
     void loadEnrollmentsData();

@@ -11,8 +11,8 @@
 #include <iostream>
 #include <string>
 
-#include "courses.hpp"
-#include "students.hpp"
+#include "courses.h"
+#include "students.h"
 #include "enrollments.hpp"
 
 

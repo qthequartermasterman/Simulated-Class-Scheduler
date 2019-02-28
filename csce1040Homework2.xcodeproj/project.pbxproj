@@ -36,9 +36,9 @@
 		BC20D46A221F42370079C977 /* student.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = student.cpp; sourceTree = "<group>"; };
 		BC20D46B221F42370079C977 /* student.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = student.h; sourceTree = "<group>"; };
 		BC20D46D221F42530079C977 /* courses.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = courses.cpp; sourceTree = "<group>"; };
-		BC20D46E221F42530079C977 /* courses.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = courses.hpp; sourceTree = "<group>"; };
+		BC20D46E221F42530079C977 /* courses.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = courses.h; sourceTree = "<group>"; };
 		BC20D470221F425E0079C977 /* students.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = students.cpp; sourceTree = "<group>"; };
-		BC20D471221F425E0079C977 /* students.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = students.hpp; sourceTree = "<group>"; };
+		BC20D471221F425E0079C977 /* students.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = students.h; sourceTree = "<group>"; };
 		BC20D473221F42670079C977 /* enrollments.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = enrollments.cpp; sourceTree = "<group>"; };
 		BC20D474221F42670079C977 /* enrollments.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = enrollments.hpp; sourceTree = "<group>"; };
 		BCCD0D6F2214C77900F0AA7A /* csce1040Homework2 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = csce1040Homework2; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -85,9 +85,9 @@
 				BC20D46A221F42370079C977 /* student.cpp */,
 				BC20D46B221F42370079C977 /* student.h */,
 				BC20D46D221F42530079C977 /* courses.cpp */,
-				BC20D46E221F42530079C977 /* courses.hpp */,
+				BC20D46E221F42530079C977 /* courses.h */,
 				BC20D470221F425E0079C977 /* students.cpp */,
-				BC20D471221F425E0079C977 /* students.hpp */,
+				BC20D471221F425E0079C977 /* students.h */,
 				BC20D473221F42670079C977 /* enrollments.cpp */,
 				BC20D474221F42670079C977 /* enrollments.hpp */,
 			);

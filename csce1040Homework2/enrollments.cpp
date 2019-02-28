@@ -7,8 +7,8 @@
 //
 
 #include "enrollments.hpp"
-#include "students.hpp"
-#include "courses.hpp"
+#include "students.h"
+#include "courses.h"
 #define CHUNKSIZE 2
 
 float Enrollments::calculateAverageOfStudentsInCourse(int courseID){
@@ -41,9 +41,7 @@ int Enrollments::addEnrollment(int studentID,int courseID){
     
     return currentNumberOfEnrollments-1;  
 } //generates a new Enrollment instance and adds it to ENROLLMENTS, allocating memory if necessary. Returns the id of the enrollment instance.
-void Enrollments::cleanup(){
-    delete [] ENROLLMENTS;
-}
+
 
 Enrollments::Enrollments(){
     ENROLLMENTS = new enrollment[CHUNKSIZE];

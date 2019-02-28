@@ -60,32 +60,43 @@ This contains the master list of courses and associated functions
 #### Variables
 private:
 Course[] COURSES      dynamic array representing the master list of courses
-int courseCount         the current number of courses in the system
+int currentNumberOfCourses         the current number of courses in the system
 int courseCapacity      the current size of COURSES
 #### Functions
 public:
-Constructor Courses::Courses()
-Deconstuctor Courses::~Courses()
-int makeNewCourse(char[] name, char[] location, int enrollmentCapacity) creates a new course by calling the Course constructor and adding it to the COURSES array. If COURSES is not large enough, it allocates more space. Returns the ID number if successful, or -1 if not.
-void printAllGradesOfStudentInCourse(int studentID, int classID) prints all the grades of the student for a particular class to the console. Calls the Course::printAllGradesOfStudent on the correct course object.
-void printListOfAllStudentsInCourse(int classID) prints a list of all students enrolled in a course to the console.
-void printListOfAllCourses() prints a list of all courses to the console
-float computeAverageOfStudentInClass(int studentID, int classID) computes the average of a student in a particular class, saves it to their corresponding enrollment instance and returns it.
-_____ addStudentToCourse(int studentID, int courseID) calls the correct course's addStudentToCourse function.
+- Courses(); Constructor
+- ~Courses(); Deconstructor
+
+- int makeNewCourse(std::string name, std::string location); //creates a new course by calling the Course constructor and adding it to the COURSES array. If COURSES is not large enough, it allocates more space. Returns the ID number if successful, or -1 if not.
+- bool isCourseIDValid(int courseID); //Loops over each course instance in COURSES. Returns true if there is a class with that courseID.  False otherwise.
+- void printCourses();        //Prints a list of classes to the console.
+- std::string getNameFromID(int courseID); //returns the course name of the course instance with the same courseID.
+- void storeCoursesData();        //Saves all courses data to the file "courses.dat" in the working directory.
+- void loadCoursesData();         //Loads all courses data to the file "courses.dat" in the working directory.
 
 
 ### Class Students
 This contains the master list of students and associated functions
 #### Variables
 private:
-Student[] STUDENTS      dynamic array representing the master list of students
-int currentNumberOfStudents     representing the current number of student records
-int studentsCapacity      representing the current capacity of student records.
+- student* STUDENTS;      //dynamic array representing the master list of students
+- int currentNumberOfStudents;     //representing the current number of student records
+- int studentsCapacity;      //representing the current capacity of student records.
+
 #### Functions
-int makeNewStudent(char[] name) creates a new student record by calling the Student Constructor and adds it to the STUDENTS array, allocating memory if necessary. Returns with the id number if succesful, but -1 if not.
-void printListOfAllStudents() prints a list of all students to the console
-bool enrollStudentInCourse(int studentID, int courseID) enrolls student with studentID in course with courseID. Returns false if student's numberOfCourses is equal to 5. Then calls Courses's addStudentToCourse method. Adds the courseID to the student's enrolledCourses array. Iterates the student's numberOfCourses by 1. Returns true if successful, and false if not.
-int getStudentIdFromName(char* name) returns the ID number of the student with a given name.
+public:
+- Students();
+- ~Students();
+- int makeNewStudent(std::string name, int classification);             //creates a new student record by calling the Student Constructor and adds it to the STUDENTS array, allocating memory if necessary. Returns with the id number if succesful, but -1 if not.
+- void printStudents();             //prints a list of all students to the console
+- void printStudentInfo(int studentID);         //prints the student's information to the console.
+- bool enrollStudentInCourse(int studentID, int courseID);        //enrolls student with studentID in course with courseID. Returns false if student's numberOfCourses is equal to 5. Then calls Courses's addStudentToCourse method. Adds the courseID to the student's enrolledCourses array. Iterates the student's numberOfCourses by 1. Returns true if successful, and false if not.
+- int getStudentIdFromName(std::string name);           //returns the ID number of the student with a given name.
+- bool isStudentInTooManyClasses(int studentID);            //returns true if the student is in too many classes already.
+- bool isStudentIDValid(int studentID);             //Returns true if there is a student with that studentID. False otherwise.
+- std::string getNameFromID(int studentID);             //returns the student name of the student instance with the same studentID.
+- void storeStudentData();          //stores student data to the file "students.dat"
+- void loadStudentData();           //loads student data from the file "students.dat"
 
 
 

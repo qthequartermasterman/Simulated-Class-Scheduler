@@ -1,13 +1,15 @@
-//
-//  students.hpp
-//  csce1040Homework2
-//
-//  Created by Andrew Sansom on 2/21/19.
-//  Copyright © 2019 Andrew Sansom. All rights reserved.
-//
+/*=============students.h================*/
+/*
+ DESCRIPTION:   Contains functions and data collection necessary to maintain one Students collection.
+ AUTHOR:        Andrew P. Sansom
+ VERSION:       1.0.0
+ VERSION DATE:  20 Feb 2019
+ EMAIL:         andrewsansom@my.unt.edu
+ COURSE:        CSCE 1040
+ =============students.h================*/
 
-#ifndef students_hpp
-#define students_hpp
+#ifndef students_h
+#define students_h
 
 #include <stdio.h>
 #include <string>
@@ -28,13 +30,12 @@ public:
     void printStudents(); //prints a list of all students to the console
     void printStudentInfo(int studentID); //prints the student's information to the console.
     bool enrollStudentInCourse(int studentID, int courseID); //enrolls student with studentID in course with courseID. Returns false if student's numberOfCourses is equal to 5. Then calls Courses's addStudentToCourse method. Adds the courseID to the student's enrolledCourses array. Iterates the student's numberOfCourses by 1. Returns true if successful, and false if not.
-    int getStudentIdFromName(std::string name); //returns the ID number of the student with a given name.
-    bool isStudentInTooManyClasses(int studentID);
+    bool isStudentInTooManyClasses(int studentID);  //returns true if the student is in too many classes already.
     bool isStudentIDValid(int studentID); //Returns true if there is a student with that studentID. False otherwise.
     std::string getNameFromID(int studentID); //returns the student name of the student instance with the same studentID.
-    void cleanup();
-    
-    void storeStudentData(); //stores student data to the file "students.dat"
-    void loadStudentData(); //loads student data from the file "students.dat"
+    int getStudentIdFromName(std::string name); //returns the ID number of the student with a given name.
+
+    void storeStudentData(); //stores student data to the file "students.dat" in the working directory
+    void loadStudentData(); //loads student data from the file "students.dat" in the working directory
 };
-#endif /* students_hpp */
+#endif /* students_h */
