@@ -8,7 +8,7 @@
 
 #include "enrollment.hpp"
 #include <iostream>
-
+#include <iomanip>
 /*
 int ID;        //representing the ID number of the enrollment data
 int studentID;     //representing the student's ID
@@ -27,28 +27,51 @@ bool enrollment::addGrade(int grade){
     }
     grades[numberOfGrades] = grade;
     numberOfGrades++;
+    calculateAverage();
+    calculateLetterGrade();
     return true;
 } //adds a grade to the next available spot in the grades array. Also increments numberOfGrades. Returns true if successful, false otherwise
 
 float enrollment::calculateAverage(){
     float runningTotal = 0;
-    for (int i = 0; i < 10; i++){
+    if (numberOfGrades==0){
+        //Aint nobody got time for division by zero errors!.
+        return -1;
+    }
+    for (int i = 0; i < numberOfGrades; i++){
         runningTotal += grades[i];
     }
-    return runningTotal/numberOfGrades;
+    average = runningTotal/numberOfGrades;
+    return average;
 }    //returns the average of all of the grades in an enrollment object as a float.
 
 char enrollment::calculateLetterGrade(){
     float average = calculateAverage();
+    char letter;
     if (average>=90){
-        return 'A';
+        letter = 'A';
     } else if (average>=80 && average < 90){
-        return 'B';
+        letter = 'B';
     } else if (average >= 70 && average < 80){
-        return 'C';
+        letter = 'C';
     } else if (average >= 60 && average < 70){
-        return 'D';
+        letter = 'D';
     } else {
-        return 'F';
+        letter = 'F';
     }
+    letterGrade = letter;
+    return letter;
 }  //returns the letter grade of the student as a char.
+
+void enrollment::printGrades(){
+    std::cout << std::left << std::setw(12) << "Student ID:" << std::setw(12) << "Course ID:" << std::setw(12) << "Grades: ";
+    for (int i = 0; i < numberOfGrades; i++){
+        std::cout << std::left << std::setw(4) << i+1 << " ";
+    }
+    std::cout << std::setw(10) << "Average: " << std::endl;
+    std::cout << std::left << std::setw(10) << studentID << "  " << std::setw(10) << courseID << "  " << std::setw(12) << " ";
+    for (int i = 0; i < numberOfGrades; i++){
+        std::cout << std::right << std::setw(4) << grades[i] << " ";
+    }
+    std::cout << std::setw(10) << std::setprecision(2) << std::fixed << calculateAverage() << std::setw(2) << calculateLetterGrade() << std::endl;
+} //prints all grades to the console.

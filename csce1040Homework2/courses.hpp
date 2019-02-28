@@ -10,6 +10,7 @@
 #define courses_hpp
 
 #include "course.hpp"
+#include <fstream>
 
 #define CHUNKSIZE 2
 
@@ -29,6 +30,10 @@ public:
     void printCourses();
     void cleanup();
     
+    std::string getNameFromID(int courseID); //returns the course name of the course instance with the same courseID.
+    
+    void storeCoursesData();
+    void loadCoursesData();
 };
 
 #endif /* courses_hpp */

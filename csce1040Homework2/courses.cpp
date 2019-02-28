@@ -57,3 +57,39 @@ Courses::Courses(){
     courseCapacity = CHUNKSIZE;
     COURSES = new course[CHUNKSIZE];
 }
+
+std::string Courses::getNameFromID(int courseID){
+    for (int i = 0; i < courseCount; i++){
+        if (COURSES[i].getID() == courseID){
+            return COURSES[i].getName();
+        }
+    }
+    return "ERROR COURSE NOT FOUND";
+}//returns the course name of the course instance with the same courseID.
+
+void Courses::storeCoursesData(){
+    std::ofstream fout;
+    fout.open("courses.dat");
+    fout << courseCount << std::endl;
+    for ( int i=0; i < courseCount; i++){
+        fout << COURSES[i].getID() << " " << COURSES[i].getName() << " " << COURSES[i].getLocation() << std::endl;
+    }
+    fout.close();
+}
+
+void Courses::loadCoursesData(){
+    std::ifstream fin;
+    int id;
+    std::string name;
+    std::string location;
+    fin.open("courses.dat");
+    fin >> courseCount; fin.ignore();
+    COURSES = new course[courseCount];
+    for ( int i=0; i < courseCount; i++){
+        fin >> id >> name >> location;
+        COURSES[i].setName(name);
+        COURSES[i].setID(id);
+        COURSES[i].setLocation(location);
+    }
+    fin.close();
+}

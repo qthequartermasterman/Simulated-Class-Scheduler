@@ -7,9 +7,10 @@
 //
 
 #include "course.hpp"
+#include <iomanip>
 
 void course::print(){
-    std::cout << "Course: " << name << " \tLocation: " << location << " \tID: " << ID << std::endl;
+    std::cout << "Course: " << std::setw(12) << name << " Location: " << std::setw(12) << location << " ID: " << std::setw(5) << ID << std::endl;
 }
 
 

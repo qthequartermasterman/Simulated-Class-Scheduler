@@ -14,7 +14,7 @@
 
 class course {
 private:
-    int ID;        //representing the ID number of the course
+    int ID=-1;        //representing the ID number of the course
     std::string name;       //representing the name of the course
     std::string location;       //representing the location of the course as  C-string
     //int enrollmentCurrent;           //representing the current enrollment of the course. Clearly this value should not be negative. It has a maximum value of 48.

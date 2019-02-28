@@ -71,3 +71,48 @@ Students::Students(){
 void Students::printStudentInfo(int studentID){
     STUDENTS[studentID].print();
 } //prints the student's information to the console.
+
+std::string Students::getNameFromID(int studentID){
+    for (int i = 0; i < currentNumberOfStudents; i++){
+        if (STUDENTS[i].getID() == studentID){
+            return STUDENTS[i].getName();
+        }
+    }
+    return "ERROR STUDENT NOT FOUND";
+}//returns the student name of the student instance with the same studentID.
+
+void Students::printStudents(){
+    for (int i = 0; i < currentNumberOfStudents; i++){
+        STUDENTS[i].print();
+    }
+}
+
+
+void Students::storeStudentData(){
+    std::ofstream fout;
+    fout.open("students.dat");
+    fout << currentNumberOfStudents << std::endl;
+    for ( int i=0; i < currentNumberOfStudents; i++){
+        fout << STUDENTS[i].getID() << " " << STUDENTS[i].getName() << " " << STUDENTS[i].getClassification() << " " << STUDENTS[i].getNumberOfClasses() << std::endl;
+    }
+    fout.close();
+}
+
+void Students::loadStudentData(){
+    std::ifstream fin;
+    int id;
+    std::string name;
+    int classification;
+    int numberOfClasses;
+    fin.open("students.dat");
+    fin >> currentNumberOfStudents; fin.ignore();
+    STUDENTS = new student[currentNumberOfStudents];
+    for ( int i=0; i < currentNumberOfStudents; i++){
+        fin >> id >> name >> classification >> numberOfClasses;
+        STUDENTS[i].setName(name);
+        STUDENTS[i].setID(id);
+        STUDENTS[i].setClassification(classification);
+        STUDENTS[i].setNumberOfClasses(numberOfClasses);
+    }
+    fin.close();
+}
