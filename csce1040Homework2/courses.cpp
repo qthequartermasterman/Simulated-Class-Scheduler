@@ -70,7 +70,7 @@ void Courses::storeCoursesData(){
     //We iterate over each class
     for ( int i=0; i < currentNumberOfCourses; i++){
         //Iterate over each variable corresponding to each class
-        fout << COURSES[i].getID() << " " << COURSES[i].getName() << " " << COURSES[i].getLocation() << std::endl;
+        fout << COURSES[i].getID() << std::endl << COURSES[i].getName() << std::endl << COURSES[i].getLocation() << std::endl;
     }
     fout.close();
 } //Saves all courses data to the file "courses.dat" in the working directory.
@@ -85,7 +85,9 @@ void Courses::loadCoursesData(){
     fin >> courseCapacity; fin.ignore();
     COURSES = new course[currentNumberOfCourses];
     for ( int i=0; i < currentNumberOfCourses; i++){
-        fin >> id >> name >> location;
+        fin >> id; fin.ignore();
+        std::getline(fin, name);
+        std::getline(fin, location);
         COURSES[i].setName(name);
         COURSES[i].setID(id);
         COURSES[i].setLocation(location);

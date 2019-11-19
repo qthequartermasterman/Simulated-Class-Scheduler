@@ -21,5 +21,5 @@ bool student::addCourse(int courseID){
 } //Updates the numberOfClasses. Returns true if succesful (i.e. the student is not already at maximum enrollment and the class is not already full) but false if not.
 
 void student::print(){
-    std::cout << "Student: " << std::setw(12) << name << " Classification: " << std::setw(2) << classification << " ID: " << std::setw(5) << ID << " Number of Classes: " << std::setw(5)  << numberOfClasses << std::endl;
+    std::cout << "Student: " << std::setw(20) << name << " Classification: " << std::setw(2) << classification << " ID: " << std::setw(5) << ID << " Number of Classes: " << std::setw(5)  << numberOfClasses << std::endl;
 } //Prints all information about the student to the console. Simply prints everything using a formatted cout string.

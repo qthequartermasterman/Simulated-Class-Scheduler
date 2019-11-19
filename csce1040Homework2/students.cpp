@@ -88,7 +88,7 @@ void Students::storeStudentData(){
     fout << currentNumberOfStudents << std::endl;
     fout << studentsCapacity << std::endl;
     for ( int i=0; i < currentNumberOfStudents; i++){
-        fout << STUDENTS[i].getID() << " " << STUDENTS[i].getName() << " " << STUDENTS[i].getClassification() << " " << STUDENTS[i].getNumberOfClasses() << std::endl;
+        fout << STUDENTS[i].getName() << std::endl << STUDENTS[i].getID() << " " << STUDENTS[i].getClassification() << " " << STUDENTS[i].getNumberOfClasses() << std::endl;
     }
     fout.close();
 } //stores student data to the file "students.dat" in the working directory
@@ -104,7 +104,8 @@ void Students::loadStudentData(){
     fin >> studentsCapacity; fin.ignore();
     STUDENTS = new student[currentNumberOfStudents];
     for ( int i=0; i < currentNumberOfStudents; i++){
-        fin >> id >> name >> classification >> numberOfClasses;
+        std::getline(fin,name);
+        fin >> id >> classification >> numberOfClasses; fin.ignore();
         STUDENTS[i].setName(name);
         STUDENTS[i].setID(id);
         STUDENTS[i].setClassification(classification);

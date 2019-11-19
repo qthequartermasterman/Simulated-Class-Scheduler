@@ -61,25 +61,26 @@ void loadData(){
 int main() {
     // We will want to make a menu with an infinite loop. It displays the list of options, then expects a user input to the console as a string. Using a switch statement, it runs the appropriate function and displays any output (if appropriate) to the console.
     std::cout << "/*=============================*/\n DESCRIPTION:   Console-based gradebook program with support for unlimited classes and students, as well as file saving.\nAUTHOR:        Andrew P. Sansom\nVERSION:       1.0.0\nVERSION DATE:  20 Feb 2019\nEMAIL:         andrewsansom@my.unt.edu\nCOURSE:        CSCE 1040\n/*=============================*/"<<std::endl;
-    char menuString[] = "\n\n\n\n\nWhat would you like to do? \nPlease insert the number of the corresponding action. \n\t0. Quit \n\t1. Add a new course \n\t2. Add a new student \n\t3. Add a student to a course \n\t4. Add grades for a student in a course \n\t5. Print a list of all grades for a student in a course \n\t6. Print a list of all students in a course \n\t7. Compute the average for a student in a course \n\t8. Print a list of all courses \n\t9. Print a list of all students \n\t10. Compute the average for a course \n\t11. Store Grade book (to a disk file) \n\t12. Load Grade book (from a disk file)\n\n";
+    char menuString[] = "\n\nWhat would you like to do? \nPlease insert the number of the corresponding action. \n\t0. Quit \n\t1. Add a new course \n\t2. Add a new student \n\t3. Add a student to a course \n\t4. Add grades for a student in a course \n\t5. Print a list of all grades for a student in a course \n\t6. Print a list of all students in a course \n\t7. Compute the average for a student in a course \n\t8. Print a list of all courses \n\t9. Print a list of all students \n\t10. Compute the average for a course \n\t11. Store Grade book (to a disk file) \n\t12. Load Grade book (from a disk file)\n\n";
     int userOption; //Stores the operation that the user requests
     std::cout << menuString << std::endl;
     std::cin >> userOption;
+    std::cin.ignore();
     std::cout << std::endl << std::endl << std::endl;
     while (userOption != 0){
         switch (userOption){
             case 1:{ //1. Add a new course
                 std::string courseName;
                 std::string locationName;
-                std::cout << "What is the name of the new course?(No spaces)\n";
-                std::cin >> courseName;
-                std::cout << "What is the location of the class?(No spaces)\n";
-                std::cin >> locationName;
+                std::cout << "What is the name of the new course?\n";
+                std::getline(std::cin, courseName);
+                std::cout << "What is the location of the class?\n";
+                std::getline(std::cin, locationName);
                 int courseID = Courses.makeNewCourse(courseName, locationName);
                 if (courseID==-1){
-                    std::cout << "Error occured. New course could not be made.\n";
+                    std::cout << "\nError occured. New course could not be made.\n";
                 } else {
-                    std::cout << "Course created. It has the ID Number: " << courseID << std::endl;
+                    std::cout << "\nCourse created. It has the ID Number: " << courseID << std::endl;
                 }
                 break;
             }
@@ -87,8 +88,8 @@ int main() {
             case 2:{ //2. Add a new student
                 std::string studentName;
                 int classification;
-                std::cout << "What is the name of the new student? (No spaces)\n";
-                std::cin >> studentName;
+                std::cout << "What is the name of the new student?\n";
+                std::getline(std::cin, studentName);
                 std::cout << "What is the classification of said student?\n0=Freshman, 1=Sophomore, 2=Junior, and 3=Senior.\n";
                 std::cin >> classification;
                 while (classification<0 || classification>4){
@@ -96,9 +97,9 @@ int main() {
                     std::cin >> classification;
                 }
                 if (Students.makeNewStudent(studentName, classification)>-1){
-                    std::cout << "Student created successfully.\n";
+                    std::cout << "\nStudent created successfully.\n";
                 } else {
-                    std::cout << "Error occured. New student could not be made.\n";
+                    std::cout << "\nError occured. New student could not be made.\n";
                 }
                 break;
             }
@@ -118,9 +119,9 @@ int main() {
                     std::cin >> courseID;
                 }
                 if (enrollStudentInCourse(studentID,courseID)){
-                    std::cout << "Student succesfully enrolled in course.\n";
+                    std::cout << "\nStudent succesfully enrolled in course.\n";
                 } else {
-                    std::cout << "An Error has occured.\n";
+                    std::cout << "\nAn Error has occured.\n";
                 }
                 break;
             }
@@ -216,7 +217,7 @@ int main() {
                     std::cout << "Invalid ID. Please enter valid ID.\n";
                     std::cin >> courseID;
                 }
-                std::cout << Enrollments.calculateAverageOfStudentsInCourse(courseID);
+                std::cout << "The average of course with ID " << courseID << " is " << Enrollments.calculateAverageOfStudentsInCourse(courseID)<<std::endl;
                 break;
             }
             case 11:{    //11. Store Grade book (to a disk file)
@@ -244,6 +245,7 @@ int main() {
         std::cin.ignore(1000,'\n');*/
         std::cout << menuString;
         std::cin >> userOption;
+        std::cin.ignore();
     }
     return 0;
 }
