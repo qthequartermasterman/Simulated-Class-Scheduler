@@ -4,3 +4,6 @@ build/
 DerivedData/ ## Various settings
 *.pbxuser
 xcuserdata/
+
+*.pdf
+*.zip
