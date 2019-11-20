@@ -1,5 +1,6 @@
-# CSCE 1040 Homework 2
-DESCRIPTION:   Console-based gradebook program with support for unlimited classes and students, as well as file saving.
+# Simulated Class Scheduler 
+DESCRIPTION:   Console-based gradebook program with support for unlimited classes and students, as well as file saving. 
+    CSCE 1040 Homework 2
 AUTHOR:        Andrew P. Sansom
 VERSION:       1.0.0
 VERSION DATE:  20 Feb 2019
